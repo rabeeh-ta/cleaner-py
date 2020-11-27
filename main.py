@@ -28,15 +28,17 @@ def search_func_root(path, item):
 
     # checking the passed argument by the user
 if args.flutter and args.node:
-    print('Cleaning both flutter and node')
+    print('\x1b[1;31;40m' + ' Cleaning both flutter and node ' + '\x1b[0m')
     search_func_root(cwd, 'build')
     search_func_root(cwd, 'node_modules')
 else:
     if args.flutter:
-        print('Cleaning Flutter files')
+        print('\x1b[1;31;40m' + ' Cleaning Flutter files ' + '\x1b[0m')
         search_func_root(cwd, 'build')
     elif args.node:
-        print('Cleaning Node files')
+        print('\x1b[1;31;40m' + ' Cleaning Node files ' + '\x1b[0m')
         search_func_root(cwd, 'node_modules')
 
-print(f'\n Total files found and cleaned: {total_found}')
+
+print('\n' + '\x1b[1;32;40m' +
+      f' Total files found and cleaned: {total_found} ' + '\x1b[0m')
