@@ -22,7 +22,7 @@ def search_func_root(path, item):
     global total_found
     for folders, sub_folders, files in os.walk(path):
         if item in sub_folders:
-            print(f"Found and deleted a {item} in {folders}")
+            print(f"Found and deleted a {item} directory in {folders}")
             send2trash.send2trash(folders+"\\"+item)
             total_found += 1
 
