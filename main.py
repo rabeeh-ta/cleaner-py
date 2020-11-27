@@ -1,5 +1,6 @@
 import os
 import argparse
+import send2trash
 
 # getting the root file path
 cwd = os.getcwd()
@@ -13,24 +14,29 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+total_found = 0  # this is return in killo-bites
+
+
 # search function to find the things to delete
-
-
-def search_func(path, item):
+def search_func_root(path, item):
+    global total_found
     for folders, sub_folders, files in os.walk(path):
         if item in sub_folders:
-            print(folders)
-
+            print(f"Found and deleted a {item} in {folders}")
+            send2trash.send2trash(folders+"\\"+item)
+            total_found += 1
 
     # checking the passed argument by the user
 if args.flutter and args.node:
-    print('both clean flutter and node')
-    search_func(cwd, 'build')
-    search_func(cwd, 'node_modules')
+    print('Cleaning both flutter and node')
+    search_func_root(cwd, 'build')
+    search_func_root(cwd, 'node_modules')
 else:
     if args.flutter:
-        print('clean flutter files')
-        search_func(cwd, 'build')
+        print('Cleaning Flutter files')
+        search_func_root(cwd, 'build')
     elif args.node:
-        print('clean node files')
-        search_func(cwd, 'node_modules')
+        print('Cleaning Node files')
+        search_func_root(cwd, 'node_modules')
+
+print(f'\n Total files found and cleaned: {total_found}')
