@@ -1,13 +1,15 @@
 # Cleaner-Py
 
-Foobar is a Python library for dealing with word pluralization.
+Cleaner-Py is a bot that will traverse through every sub-directory and will clean the modules,compilation files found.
 
 ## Installation
 
-This script only uses one external library [send2trash](https://pip.pypa.io/en/stable/).
+This script only uses one external library that you should install manually [send2trash](https://pip.pypa.io/en/stable/).
+
+Make sure you are having `python-3`
 
 ```bash
-pip install foobar
+pip install send2trash
 ```
 
 ## Usage
@@ -18,9 +20,9 @@ python main.py --flag
 
 For now you can pass two flags
 
-`--flutter` => will delete all the build directoryies found.
+`--flutter` => will delete all the build directories found.
 
-`--node` => will delete all the node-modules folder found.
+`--node` => will delete all the node-modules directories found.
 
 ## Contributing
 
