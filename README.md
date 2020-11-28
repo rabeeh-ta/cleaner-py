@@ -18,11 +18,11 @@ pip install send2trash
 python main.py --flag
 ```
 
-For now you can pass two flags
+There are two flags
 
-`--flutter` => will delete all the build directories found.
+`--flutter` will delete all the build directories found.
 
-`--node` => will delete all the node-modules directories found.
+`--node` will delete all the node-modules directories found.
 
 ## Contributing
 
